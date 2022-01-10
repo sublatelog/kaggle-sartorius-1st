@@ -1,7 +1,16 @@
-# train detector using the LIVECell dataset
+det/train(LIVECell) > det/test(LIVECell) > det/train(compdata) > det/test(compdata)
+
+seg/train(LIVECell):upernet_swin-t > seg/train(compdata):upernet_swin-t > seg/test(compdata)
+
+
+# 1. train detector using the LIVECell dataset
+# det/train.py
+#   configs : configs/det/yolox_x_livecell.py
 python tools/det/train.py configs/det/yolox_x_livecell.py
 
-# predict bboxes of LIVECell validataion data
+
+
+# 2. predict bboxes of LIVECell validataion data
 # det/test.py
 #   configs : configs/det/yolox_x_livecell.py
 #   work_dirs : work_dirs/yolox_x_livecell/epoch_30.pth
@@ -10,14 +19,14 @@ python tools/det/train.py configs/det/yolox_x_livecell.py
 python tools/det/test.py configs/det/yolox_x_livecell.py work_dirs/yolox_x_livecell/epoch_30.pth --out work_dirs/yolox_x_livecell/val_preds.pkl --eval bbox
 
 
-# finetune the detector on competition data(train split)
+# 3. finetune the detector on competition data(train split)
 # det/train.py
 #   configs : configs/det/yolox_x_kaggle.py
 #   --load-from : work_dirs/yolox_x_livecell/epoch_15.pth
 python tools/det/train.py configs/det/yolox_x_kaggle.py --load-from work_dirs/yolox_x_livecell/epoch_15.pth
 
 
-# predict bboxes of competition data(val split)
+# 4. predict bboxes of competition data(val split)
 # det/test.py
 #   configs : configs/det/yolox_x_kaggle.py
 #   work_dirs : work_dirs/yolox_x_kaggle/epoch_30.pth
@@ -26,14 +35,14 @@ python tools/det/train.py configs/det/yolox_x_kaggle.py --load-from work_dirs/yo
 python tools/det/test.py configs/det/yolox_x_kaggle.py work_dirs/yolox_x_kaggle/epoch_30.pth --out work_dirs/yolox_x_kaggle/val_preds.pkl --eval bbox
 
 
-# train segmentor using LIVECell dataset
+# 5. train segmentor using LIVECell dataset
 # seg/train.py
 #   configs : configs/seg/upernet_swin-t_livecell.py
 python tools/seg/train.py configs/seg/upernet_swin-t_livecell.py
 
 
 
-# finetune the segmentor on competition data(train split)
+# 6. finetune the segmentor on competition data(train split)
 # seg/train.py
 #   configs : configs/seg/upernet_swin-t_kaggle.py
 #   --load-from : work_dirs/upernet_swin-t_livecell/epoch_1.pth
@@ -41,7 +50,7 @@ python tools/seg/train.py configs/seg/upernet_swin-t_kaggle.py --load-from work_
 
 
 
-# predict instance masks of competition data(val split)
+# 7. predict instance masks of competition data(val split)
 # seg/test.py
 #   configs : configs/seg/upernet_swin-t_kaggle.py
 #   work_dirs : work_dirs/upernet_swin-t_kaggle/epoch_10.pth
