@@ -76,8 +76,7 @@ train_dataset = dict(
         classes=classes,
         ann_file=data_root + 'LIVECell_dataset_2021/train_8class.json',
         # ann_file=data_root + 'LIVECell_dataset_2021/train_8class.json',
-        img_prefix=data_root +
-        'LIVECell_official/images/livecell_train_val_images',
+        img_prefix=data_root + 'LIVECell_dataset_2021/images/livecell_train_val_images',
         pipeline=[
             dict(type='LoadImageFromFile', to_float32=True),
             dict(type='LoadAnnotations', with_bbox=True)
