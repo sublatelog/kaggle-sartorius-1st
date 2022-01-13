@@ -1,7 +1,7 @@
 fp16 = dict(loss_scale=512.)
 img_scale = (1536, 1536)
 num_last_epochs = 5
-data_root = '../data/'
+data_root = 'data/'
 
 # model settings
 model = dict(
@@ -28,7 +28,7 @@ model = dict(
         in_channels=[256, 512, 1024],
         init_cfg=dict(
             type='Pretrained',
-            checkpoint=data_root + 'data/checkpoints/yolox_x_coco.pth',
+            checkpoint=data_root + 'checkpoints/yolox_x_coco.pth',
             prefix='head'
         )
     ),
