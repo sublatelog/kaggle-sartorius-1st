@@ -1,5 +1,6 @@
 fp16 = dict(loss_scale=512.)
-img_scale = (1024, 1024)
+img_scale = (1024, 800)
+# img_scale = (1024, 1024)
 # img_scale = (2048, 2048)
 # img_scale = (1536, 1536)
 num_last_epochs = 5
