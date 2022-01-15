@@ -164,13 +164,13 @@ custom_hooks = [
     dict(
         type='YOLOXModeSwitchHook',
         num_last_epochs=num_last_epochs,
-        priority=48
+        priority=24 # 48
     ),
     dict(
         type='SyncNormHook',
         num_last_epochs=num_last_epochs,
         interval=1,
-        priority=48
+        priority=24 # 48
     ),
     dict(type='ExpMomentumEMAHook', resume_from=resume_from, priority=49)
 ]
