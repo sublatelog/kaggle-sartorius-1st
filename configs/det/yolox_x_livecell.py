@@ -4,7 +4,7 @@ fp16 = dict(loss_scale=256.)
 # img_scale = (1024, 1024)
 # img_scale = (2048, 2048)
 img_scale = (1536, 1536)
-num_last_epochs = 5
+num_last_epochs = 15
 data_root = 'data/'
 
 # model settings
@@ -111,8 +111,8 @@ test_pipeline = [
 ]
 
 data = dict(
-    samples_per_gpu=1, # 2, # 4,
-    workers_per_gpu=1, # 2, # 4,
+    samples_per_gpu=2, ## 1, #  4,
+    workers_per_gpu=2, ## 1, #  4,
     # persistent_workers=True,
     train=train_dataset,
     val=dict(
