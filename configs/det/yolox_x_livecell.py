@@ -1,8 +1,9 @@
-fp16 = dict(loss_scale=512.)
+fp16 = dict(loss_scale=256.)
+# fp16 = dict(loss_scale=512.)
 # img_scale = (1024, 800)
 # img_scale = (1024, 1024)
-img_scale = (2048, 2048)
-# img_scale = (1536, 1536)
+# img_scale = (2048, 2048)
+img_scale = (1536, 1536)
 num_last_epochs = 5
 data_root = 'data/'
 
@@ -140,7 +141,8 @@ optimizer = dict(
 optimizer_config = dict(grad_clip=None)
 
 evaluation = dict(
-    interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 2000)
+    interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 1000)
+#     interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 2000)
 )
 lr_config = dict(
     policy='YOLOX',
@@ -174,5 +176,6 @@ custom_hooks = [
         interval=1,
         priority=24 # 48
     ),
-    dict(type='ExpMomentumEMAHook', resume_from=resume_from, priority=49)
+    dict(type='ExpMomentumEMAHook', resume_from=resume_from, priority=25)
+#     dict(type='ExpMomentumEMAHook', resume_from=resume_from, priority=49)
 ]
