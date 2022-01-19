@@ -1,10 +1,10 @@
-fp16 = dict(loss_scale=256.)
-# fp16 = dict(loss_scale=512.)
+# fp16 = dict(loss_scale=256.)
+fp16 = dict(loss_scale=512.)
 # img_scale = (1024, 800)
 # img_scale = (1024, 1024)
 # img_scale = (2048, 2048)
 img_scale = (1536, 1536)
-num_last_epochs = 15
+num_last_epochs = 5 # 15
 data_root = 'data/'
 
 # model settings
@@ -111,8 +111,8 @@ test_pipeline = [
 ]
 
 data = dict(
-    samples_per_gpu=1, # 2, ##   4,
-    workers_per_gpu=1, # 2, ##  4,
+    samples_per_gpu=2, # 1, # #  4,
+    workers_per_gpu=2, # 1, # #  4,
     # persistent_workers=True,
     train=train_dataset,
     val=dict(
@@ -141,8 +141,8 @@ optimizer = dict(
 optimizer_config = dict(grad_clip=None)
 
 evaluation = dict(
-    interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 1000)
-#     interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 2000)
+#     interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 1000)
+    interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 2000)
 )
 lr_config = dict(
     policy='YOLOX',
@@ -168,14 +168,14 @@ custom_hooks = [
     dict(
         type='YOLOXModeSwitchHook',
         num_last_epochs=num_last_epochs,
-        priority=24 # 48
+        priority=48 # 24 # 
     ),
     dict(
         type='SyncNormHook',
         num_last_epochs=num_last_epochs,
         interval=1,
-        priority=24 # 48
+        priority=48 # 24 # 
     ),
-    dict(type='ExpMomentumEMAHook', resume_from=resume_from, priority=25)
-#     dict(type='ExpMomentumEMAHook', resume_from=resume_from, priority=49)
+#     dict(type='ExpMomentumEMAHook', resume_from=resume_from, priority=25)
+    dict(type='ExpMomentumEMAHook', resume_from=resume_from, priority=49)
 ]
