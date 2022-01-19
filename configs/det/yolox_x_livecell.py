@@ -141,8 +141,8 @@ optimizer = dict(
 optimizer_config = dict(grad_clip=None)
 
 evaluation = dict(
-#     interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 1000)
-    interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 2000)
+    interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 1000)
+#     interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 2000)
 )
 lr_config = dict(
     policy='YOLOX',
