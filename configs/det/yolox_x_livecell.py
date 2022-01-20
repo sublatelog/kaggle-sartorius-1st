@@ -19,8 +19,8 @@ model = dict(
         width=1.25,
         init_cfg=dict(
             type='Pretrained',
-            checkpoint=data_root + 'checkpoints/yolox_x_coco.pth',
-            # checkpoint='/data/checkpoints/yolox_x_coco.pth',
+#             checkpoint=data_root + 'checkpoints/yolox_x_coco.pth',
+            checkpoint='/content/work_dirs/yolox_x_livecell/latest.pth',
             prefix='backbone'
         )
     ),
@@ -32,7 +32,8 @@ model = dict(
         in_channels=[256, 512, 1024],
         init_cfg=dict(
             type='Pretrained',
-            checkpoint=data_root + 'checkpoints/yolox_x_coco.pth',
+#             checkpoint=data_root + 'checkpoints/yolox_x_coco.pth',
+            checkpoint='/content/work_dirs/yolox_x_livecell/latest.pth',
             prefix='head'
         )
     ),
