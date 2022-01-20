@@ -19,8 +19,7 @@ model = dict(
         width=1.25,
         init_cfg=dict(
             type='Pretrained',
-#             checkpoint=data_root + 'checkpoints/yolox_x_coco.pth',
-            checkpoint='/content/work_dirs/yolox_x_livecell/latest.pth',
+            checkpoint=data_root + 'checkpoints/yolox_x_coco.pth',
             prefix='backbone'
         )
     ),
@@ -32,8 +31,7 @@ model = dict(
         in_channels=[256, 512, 1024],
         init_cfg=dict(
             type='Pretrained',
-#             checkpoint=data_root + 'checkpoints/yolox_x_coco.pth',
-            checkpoint='/content/work_dirs/yolox_x_livecell/latest.pth',
+            checkpoint=data_root + 'checkpoints/yolox_x_coco.pth',
             prefix='head'
         )
     ),
@@ -162,7 +160,8 @@ log_config = dict(interval=10, hooks=[dict(type='TextLoggerHook')])
 custom_hooks = [dict(type='NumClassCheckHook')]
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-load_from = None
+# load_from = None
+load_from = 'work_dirs/yolox_x_livecell/epoch_1.pth'
 resume_from = None
 workflow = [('train', 1)]
 custom_hooks = [
