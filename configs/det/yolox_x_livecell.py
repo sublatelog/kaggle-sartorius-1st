@@ -110,7 +110,7 @@ test_pipeline = [
 ]
 
 data = dict(
-    samples_per_gpu=2, # 1, # #  4,
+    samples_per_gpu=1, # 2, # 1, # #  4,
     workers_per_gpu=1, # 2, # #  4,
     # persistent_workers=True,
     train=train_dataset,
@@ -164,8 +164,8 @@ log_level = 'INFO'
 # load_from = 'work_dirs/yolox_x_livecell/epoch_1.pth'
 load_from = 'work_dirs/yolox_x_livecell/latest.pth'
 resume_from = None
-# workflow = [('train', 1)]
-workflow = [('train', 2)]
+workflow = [('train', 1)]
+# workflow = [('train', 2)]
 custom_hooks = [
     dict(
         type='YOLOXModeSwitchHook',
