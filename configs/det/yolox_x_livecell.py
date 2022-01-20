@@ -111,7 +111,7 @@ test_pipeline = [
 
 data = dict(
     samples_per_gpu=2, # 1, # #  4,
-    workers_per_gpu=2, # 1, # #  4,
+    workers_per_gpu=1, # 2, # #  4,
     # persistent_workers=True,
     train=train_dataset,
     val=dict(
@@ -140,8 +140,8 @@ optimizer = dict(
 optimizer_config = dict(grad_clip=None)
 
 evaluation = dict(
-#     interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 1000)
-    interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 2000)
+    interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 1500)
+#     interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 2000)
 )
 lr_config = dict(
     policy='YOLOX',
@@ -161,9 +161,11 @@ custom_hooks = [dict(type='NumClassCheckHook')]
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 # load_from = None
-load_from = 'work_dirs/yolox_x_livecell/epoch_1.pth'
+# load_from = 'work_dirs/yolox_x_livecell/epoch_1.pth'
+load_from = 'work_dirs/yolox_x_livecell/latest.pth'
 resume_from = None
-workflow = [('train', 1)]
+# workflow = [('train', 1)]
+workflow = [('train', 2)]
 custom_hooks = [
     dict(
         type='YOLOXModeSwitchHook',
