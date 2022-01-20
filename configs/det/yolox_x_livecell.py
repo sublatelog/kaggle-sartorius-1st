@@ -160,9 +160,9 @@ log_config = dict(interval=10, hooks=[dict(type='TextLoggerHook')])
 custom_hooks = [dict(type='NumClassCheckHook')]
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-# load_from = None
+load_from = None
 # load_from = 'work_dirs/yolox_x_livecell/epoch_1.pth'
-load_from = 'work_dirs/yolox_x_livecell/latest.pth'
+# load_from = 'work_dirs/yolox_x_livecell/latest.pth'
 work_dirs = '/content/gdrive/MyDrive/colab_notebooks/Sartorius/work_dirs_1st'
 resume_from = None
 workflow = [('train', 1)]
