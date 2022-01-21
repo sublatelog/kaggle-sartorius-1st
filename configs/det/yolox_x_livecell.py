@@ -160,9 +160,9 @@ log_config = dict(interval=10, hooks=[dict(type='TextLoggerHook')])
 custom_hooks = [dict(type='NumClassCheckHook')]
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-load_from = None
+# load_from = None
 # load_from = 'work_dirs/yolox_x_livecell/epoch_1.pth'
-# load_from = 'work_dirs/yolox_x_livecell/latest.pth'
+load_from = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_livecell/latest.pth'
 work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_livecell/'
 resume_from = None
 workflow = [('train', 1)]
