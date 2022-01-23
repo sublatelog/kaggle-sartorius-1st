@@ -21,7 +21,8 @@ model = dict(
 
 dataset_type = 'CellDataset'
 classes = ('shsy5y', 'astro', 'cort')
-data_root = '../data/'
+# data_root = '../data/'
+data_root = 'data/'
 train_pipeline = [
     dict(type='Mosaic', img_scale=img_scale, pad_val=114.0),
     dict(
@@ -91,8 +92,10 @@ test_pipeline = [
 ]
 
 data = dict(
-    samples_per_gpu=4,
-    workers_per_gpu=4,
+    samples_per_gpu=1,
+    workers_per_gpu=1,
+#     samples_per_gpu=4,
+#     workers_per_gpu=4,
     # persistent_workers=True,
     train=train_dataset,
     val=dict(
@@ -142,7 +145,9 @@ log_config = dict(interval=10, hooks=[dict(type='TextLoggerHook')])
 custom_hooks = [dict(type='NumClassCheckHook')]
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-load_from = 'work_dirs/yolox_x_livecell/epoch_15.pth'
+load_from = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_livecell/latest.pth'
+# load_from = 'work_dirs/yolox_x_livecell/epoch_15.pth'
+work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_dtrain_g0/'
 resume_from = None
 workflow = [('train', 1)]
 custom_hooks = [
