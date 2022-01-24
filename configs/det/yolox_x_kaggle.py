@@ -60,7 +60,8 @@ train_dataset = dict(
     dataset=dict(
         type=dataset_type,
         classes=classes,
-        ann_file=data_root + 'dtrain_g0.json',
+#         ann_file=data_root + 'dtrain_g0.json',
+        ann_file=data_root + 'dtrain_g1.json',
         img_prefix=data_root + 'train',
         pipeline=[
             dict(type='LoadImageFromFile', to_float32=True),
@@ -108,7 +109,8 @@ data = dict(
     test=dict(
         type=dataset_type,
         classes=classes,
-        ann_file=data_root + 'dval_g0.json',
+#         ann_file=data_root + 'dval_g0.json',
+        ann_file=data_root + 'dval_g1.json',
         img_prefix=data_root + 'train',
         pipeline=test_pipeline,
     ),
@@ -147,7 +149,8 @@ dist_params = dict(backend='nccl')
 log_level = 'INFO'
 load_from = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_livecell/latest.pth'
 # load_from = 'work_dirs/yolox_x_livecell/epoch_15.pth'
-work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_dtrain_g0/'
+# work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_dtrain_g0/'
+work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_dtrain_g1/'
 resume_from = None
 workflow = [('train', 1)]
 custom_hooks = [
