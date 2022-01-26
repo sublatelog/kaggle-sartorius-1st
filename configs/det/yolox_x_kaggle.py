@@ -111,6 +111,7 @@ data = dict(
 #         ann_file=data_root + 'dval_g1.json',
 #         ann_file=data_root + 'dval_g2.json',
         ann_file=data_root + 'dval_g3.json',
+#         ann_file=data_root + 'dval_g4.json',
         img_prefix=data_root + 'train',
         pipeline=test_pipeline,
     ),
@@ -121,6 +122,7 @@ data = dict(
 #         ann_file=data_root + 'dval_g1.json',
 #         ann_file=data_root + 'dval_g2.json',
         ann_file=data_root + 'dval_g3.json',
+#         ann_file=data_root + 'dval_g4.json',
         img_prefix=data_root + 'train',
         pipeline=test_pipeline,
     ),
@@ -164,6 +166,7 @@ load_from = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_livec
 # work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_dtrain_g1/'
 # work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_dtrain_g2/'
 work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_dtrain_g3/'
+# work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/yolox_x_dtrain_g4/'
 resume_from = None
 workflow = [('train', 1)]
 custom_hooks = [
