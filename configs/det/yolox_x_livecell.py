@@ -4,7 +4,7 @@ fp16 = dict(loss_scale=512.)
 # img_scale = (1024, 1024)
 # img_scale = (2048, 2048)
 img_scale = (1536, 1536)
-num_last_epochs = 5 # 15
+num_last_epochs = 50 # 5 # 15
 data_root = 'data/'
 
 # model settings
@@ -132,6 +132,7 @@ data = dict(
 optimizer = dict(
     type='SGD',
     lr=0.01 / 64,
+#     lr=0.005 / 64,
     momentum=0.9,
     weight_decay=0.0005,
     nesterov=True,
@@ -140,8 +141,8 @@ optimizer = dict(
 optimizer_config = dict(grad_clip=None)
 
 evaluation = dict(
-    interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 1500)
-#     interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 2000)
+#     interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 1500)
+    interval=1, metric='bbox', classwise=True, proposal_nums=(100, 300, 2000)
 )
 lr_config = dict(
     policy='YOLOX',
