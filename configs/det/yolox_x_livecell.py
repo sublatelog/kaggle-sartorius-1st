@@ -4,7 +4,7 @@ fp16 = dict(loss_scale=512.)
 # img_scale = (1024, 1024)
 # img_scale = (2048, 2048)
 img_scale = (1536, 1536)
-num_last_epochs = 5 # 15
+num_last_epochs = 50 # 5 # 15
 data_root = 'data/'
 
 # model settings
