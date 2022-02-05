@@ -132,6 +132,7 @@ dist_params = dict(backend='nccl')
 log_level = 'INFO'
 # load_from = 'work_dirs/upernet_swin-t_livecell/epoch_1.pth'
 load_from = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/upernet_swin-t_livecell/epoch_1.pth'
+work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/upernet_swin-t_kaggle/'
 resume_from = None
 workflow = [('train', 1)]
 cudnn_benchmark = True
