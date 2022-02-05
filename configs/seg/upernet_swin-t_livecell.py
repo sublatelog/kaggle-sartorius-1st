@@ -132,6 +132,7 @@ log_config = dict(
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 load_from = 'https://download.openmmlab.com/mmsegmentation/v0.5/swin/upernet_swin_tiny_patch4_window7_512x512_160k_ade20k_pretrain_224x224_1K/upernet_swin_tiny_patch4_window7_512x512_160k_ade20k_pretrain_224x224_1K_20210531_112542-e380ad3e.pth'
+work_dir = '/content/drive/MyDrive/kaggle/Sartorius/work_dirs_1st/upernet_swin-t_livecell/'
 resume_from = None
 workflow = [('train', 1)]
 cudnn_benchmark = True
